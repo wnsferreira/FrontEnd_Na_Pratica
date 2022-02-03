@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>  Meu projeto de Matemática</h1>
+      <div>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero"/>
+        <button onclick="calcula()" >ok</button>
+      </div>
+    </div>
+    <div class="resultados">
+      <div class="caixa boxSquare">
+        <div>
+          <p>Quadrado</p>
+        </div>
+        <div id="resultadoQuadrado"></div>
+      </div>
+      <div class="caixa boxCube">
+        <div>
+          <p>Cubo</p>
+        </div>
+        <div id="resultadoCubo"></div>
+      </div>
+      <div class="caixa boxRoot">
+        <div>
+          <p>Raiz</p>
+        </div>
+        <div id="resultadoRaiz"></div>
+      </div>
+      <div class="caixa boxFactorial">
+        <div>
+          <p>Fatorial</p>
+        </div>
+        <div id="resultadoFatorial"></div>
+      </div>
+      <div class="caixa boxEvenOdd">
+        <div>
+          <p>Par ou Ímpar</p>
+        </div>
+        <div id="resultadoParOuImpar"></div>
+      </div>
+      <div class="caixa boxPrime">
+        <div>
+          <p>Primo <br/>ou Composto</p>
+        </div>
+        <div id="resultadoPrimo"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

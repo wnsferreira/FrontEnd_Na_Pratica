@@ -1,0 +1,16 @@
+body{
+    background: darkgray;
+}
+
+/* css selector */
+.title{
+    color: blue;
+}
+
+.subTitle{
+    color: darkmagenta;
+}
+
+#contact-us{
+    color: green;
+}

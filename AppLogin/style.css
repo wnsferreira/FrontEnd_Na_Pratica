@@ -1,0 +1,11 @@
+#erros{
+    color: red;
+  }
+  
+  .home{
+    visibility: hidden;
+  }
+  
+  .cadastroUsuario{
+    visibility: hidden;
+  }
