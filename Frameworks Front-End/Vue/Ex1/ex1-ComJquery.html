@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        .done {
+            color: gray;
+        }
+    </style>
+    <title>Com jQuery</title>
+</head>
+
+<body>
+    <!-- criar ul -->
+    <ul id="js-items"></ul>
+
+    <script>
+        $(function () {
+
+            // importa arquivo json
+            $.get('./data.json')
+
+            .then(data => {
+                const $itemsUL = $('#js-items');
+
+                // verifica se a lista está vazia
+                // se estiver exibe informação
+                //senão percorre a lista usando foreach 
+                // pega o item.task e item.status se for true pega o item com a classe done que deixa ele cinza.
+                if (!data.items.length) {
+                    const $noItems = $('<li>');
+                    $noItems.text('Lista Vazia');
+                    $itemsUl.append($noItems)
+                } else {
+                    data.items.forEach(function (item) {
+                        const $newItem = $('<li>');
+                        $newItem.text(item.task);
+                        if (item.status)
+                            newItem.addClass('done')
+                        $itemsUl.append($newItem)
+                    });
+                }
+            })
+
+        });
+    </script>
+</body>
+
+</html>

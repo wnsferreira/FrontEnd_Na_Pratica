@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <style>
+        .done {
+            color: gray;
+        }
+    </style>
+    <title>Com vue</title>
+</head>
+
+<body>
+    <!-- View -->
+    <ul id="js-items">
+        <li v-if="!items.length">Lista vazia</li>
+        <li v-for="item in items" :class=" { 'done':item.status}">
+            {{ item.task}}
+        </li>
+    </ul>
+
+    <!-- View-model -->
+    <script>
+        Vue.createdApp({
+            data(){
+                return{
+                    items: []
+                }
+            },
+            created(){
+                fetch('./data.json')
+                .then(res => res.json())
+                .then(data => {
+                    this.items = data.items
+                })
+            }
+        }).mount('#js-items')
+    </script>
+</body>
+
+</html>
+
+<!-- Parei no 1:04 da aula -->
