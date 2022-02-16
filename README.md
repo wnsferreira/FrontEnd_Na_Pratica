@@ -1,3 +1,4 @@
-# Front-End
+# Front-End (material de estudo)
 
-## Aqui estão alguns conteúdos que tenho estudado, usando Javascript e alguns frameworsks, como o Vue e o React.
+## Linguagem: Javascript 
+## Frameworks: Vue e o React
