@@ -1,0 +1,7 @@
+[
+    {"id": 1, "quantity": 0, "name": "meia"},
+    {"id": 2, "quantity": 10, "name": "tênis"},
+    {"id": 3, "quantity": 5, "name": "camsisa"},
+    {"id": 4, "quantity": 4, "name": "sapato"},
+    {"id": 5, "quantity": 1, "name": "Boné"}
+]

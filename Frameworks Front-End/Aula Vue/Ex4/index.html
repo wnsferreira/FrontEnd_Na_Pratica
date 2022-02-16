@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Aula 2</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <p v-if="ehManha">Está de manhã</p>
+        <p v-if="ehTarde">Está de tarde</p>
+        <p v-if="ehNoite">Está de noite</p>
+    </div>
+
+    <script>
+        var horas = new Date().getHours();
+        const app = Vue.createApp({
+            data(){
+                return {
+                    titulo: "Dia",
+                    ehManha: horas < 12,
+                    ehTarde: horas >=12 && horas < 18,
+                    ehNoite: horas > 18
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>

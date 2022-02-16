@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Locadora</title>
+</head>
+
+<body>
+    <div id="appA">
+        <h1 v-html="titulo"></h1>
+        <p>{{ mensagem }}</p>
+        <div v-if="horas >=7 && horas <=19">
+            <p>Aberta! <br>{{ horas }}</p>
+            <div v-for="filme in filmes">
+                <img :src="filme.img" width="100">
+                <p>{{ filme.titulo }}</p>
+            </div>
+        </div>
+        <p v-else>Fechada! <br>{{ horas }}</p>
+    </div>
+
+    <script>
+        var horas = new Date().getHours();
+        const app = Vue.createApp({
+            data() {
+                return {
+                    titulo: "Locadora <span style= 'color: blue;'>de filmes",
+                    mensagem: "Seja bem vindo(a)!",
+                    filmes: [
+                        {
+                            titulo: "007",
+                            classificacao: "16",
+                            img: "https://cdn.pixabay.com/photo/2010/11/24/auto-7_960_720.jpg"
+                        },
+                        {
+                            titulo: "Titanic",
+                            classificacao: "16",
+                            img: "https://cdn.pixabay.com/photo/2010/11/24/auto-7_960_720.jpg"
+                        }
+                    ],
+                    horas: new Date().getHours()
+                }
+            }
+        })
+        app.mount('#appA')
+    </script>
+</body>
+
+</html>
