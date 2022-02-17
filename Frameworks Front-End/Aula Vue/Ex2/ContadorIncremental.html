@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Contador</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="incrementar" >Incrementar o contador</button>
+        <p>Você clicou {{ contador }} vezes no botão</p>
+    </div>
+
+    <script>
+        const App ={
+            data() {
+                return {
+                    contador: 0
+                }
+            },
+            methods: {
+                incrementar: function(){
+                    this.contador++;
+                }
+            },
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
