@@ -4,7 +4,7 @@
         {"task": "task 2", "status": false},
         {"task": "task 3", "status": false},
         {"task": "task 4", "status": false},
-        {"task": "task 5", "status": false},
+        {"task": "task 5", "status": true},
         {"task": "task 6", "status": true},
         {"task": "task 7", "status": false}
     ]

@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 960px;
+    background-color: slategray;
+    margin: 0 auto;    
+}
+header{
+    outline: 2px solid green;
+    height: 150px;
+}
+header img{
+    width: 80px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+}
+div{
+    /* background-color: blue; */
+}
+nav{
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    padding: 0 10px;
+    background-color: red;
+    border-radius: 10px;
+}
+.clear{
+    clear: both;
+}
+main{
+    background-color: steelblue;
+    height: auto;
+    min-height: calc(100vh - 230px );
+}
+aside{
+    background-color: green;
+    width: 24.5%;
+    display: inline-block;
+    height: calc(100vh - 230px);
+}
+section #conteudo{
+    background-color: yellow;
+    width: 75%;
+    display: inline-block;
+    height: calc(100vh - 230px);
+}
+footer{
+    height: 80px;
+    background-color: rebeccapurple;
+}
+.esquerda{
+    float: left;
+}
+.direita{
+    float: right;
+}
+
+/* 
+Para alinhar uma imagem, deve ser apartir do pai. 
+Como foi feito com text-align no header.
+
+O margin auto só funciona na imagem se transformala em bloco.
+Pra isso deve-se usar o displayu: block
+
+*/

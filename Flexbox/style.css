@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  #pai{
+    background-color: lightsteelblue;
+    margin:0 auto;
+    border: 1px solid steelblue;
+    width: 800px;
+    height: 700px;
+    display: flex;
+    flex-direction: row; /*row; row-reverse; column; column-reverse*/
+    flex-wrap:nowrap; /*nowrap; wrap; wrap-reverse; */
+  /*   flex-flow: column wrap; */
+    justify-content: space-around; /*center; flex-start; flex-end; space-around; space-between; space-evenly*/
+    align-items: center;
+   /* center;flex-start;flex-end; baseline; stretch*/
+  /*   align-content: flex-end; center; flex-start; flex-end; space-around; space-between; */
+  }
+  .itemfilho{
+    width: 400px;
+    height:200px;
+   
+  /*   margin: 0 20px; */
+    background-color: violet;
+    border: 1px solid maroon;
+  }
+  .diferentao{
+    height: 300px;
+    padding-top: 50px;
+  }
+  .rebelde{
+    order: -2;
+  /*   flex-grow:2; */
+    flex-shrink:1;
+    flex-basis: auto;
+  }
+  .ovelhaperdida{
+    order: -1;
+  /*   flex-grow: 1; */
+    flex-shrink: 0;
+    align-self: flex-end;
+  }
+  .itemfilho:first-child{
+    background-color:yellow;
+    flex-shrink: 1;
+  }

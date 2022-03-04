@@ -1,0 +1,8 @@
+{
+    "items":[
+        {"id":"01","descricao": "caminhada","estaCompleta": false},
+        {"id":"02","descricao": "corrida","estaCompleta": false},
+        {"id":"03","descricao": "malhacao","estaCompleta": true},
+        {"id":"04","descricao": "alongamento","estaCompleta": false}
+    ]
+}
