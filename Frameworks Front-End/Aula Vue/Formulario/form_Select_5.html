@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="v-model-select" class="formulario">
+        <select v-model="selected">
+            <option disabled value="">Escolha uma opção</option>
+            <option>Azul</option>
+            <option>Rosa</option>
+            <option>Verde</option>
+        </select>
+        <p>Selecionado: {{ selected }} </p>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    selected: ''
+                }
+            }
+        }).mount('#v-model-select')
+    </script>
+</body>
+</html>

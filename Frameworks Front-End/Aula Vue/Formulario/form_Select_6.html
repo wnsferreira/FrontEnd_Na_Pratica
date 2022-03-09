@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div id="v-model-select-dynamic" class="formulario">
+      <select v-model="selected">
+          <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+          </option>
+      </select>
+      <p>Selecionado: {{ selected }}</p>
+  </div>  
+  <script>
+    Vue.createApp({
+      data(){
+        return {
+          selected: 'A',
+          options: [
+            { text: 'Um', value: 'A'},
+            { text: 'Dois', value: 'B'},
+            { text: 'Três', value: 'C'},
+          ]
+        }
+      }
+    }).mount('#v-model-select-dynamic')
+  </script>
+</body>
+</html>

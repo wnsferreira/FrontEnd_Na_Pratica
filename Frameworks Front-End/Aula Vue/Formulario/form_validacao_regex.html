@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form @submit.prevent="validaForm" action="">
+            <p v-if="errors.length">
+                <b>Favor corrigir o(s) erro(s):</b>
+                <ul>
+                    <li v-for="error in errors"> {{ error }}</li>
+                </ul>
+            </p>
+
+            <p>
+                <label for="name">Nome</label>
+                <input
+                    id="name"
+                    v-model="name"
+                    type="text"
+                    name="name"
+                    placeholder="Nome">
+            </p>
+
+            <p>
+                <label for="email">Email</label>
+                <input
+                    id="email"
+                    v-model="email"
+                    type="email"
+                    name="email"
+                    placeholder="E-mail">
+            </p>
+
+            <p>
+                <label for="movie">Filme favorito</label>
+                <select
+                    id="movie"
+                    v-model="movie"
+                    name="movie">
+                    <option>Vingadores</option>
+                    <option>Mulher Maravilha</option>
+                    <option>Homem de Ferro</option>
+                </select>                    
+            </p>
+
+            <p>
+                <input
+                    type="submit"
+                    value="Enviar">
+            </p>
+        </form>
+    </div>
+
+    <script>
+        const app = Vue.createApp ({
+            data() {
+                return {
+                    errors: [],
+                    name: null,
+                    email: null,
+                    movie: null
+                }
+            },
+            methods: {
+                validaForm: function(){
+                    this.errors = [];
+
+                    if(!this.name){
+                        this.errors.push('O nome é obrigatório');
+                    }
+
+                    if(!this.email){
+                        this.errors.push('O e-mail é obrigatório');
+                    }else if (this.validEmail(this.email)){
+                        this.errors.push('Digite um e-mail válido.')
+                    }
+
+                    if(!this.errors.length){
+                        return true;
+                    }
+                },
+                validEmail: function (email) {
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+    <style>
+        input,select{
+            margin-left: 10px;
+        }
+    </style>
+</body>
+</html>
