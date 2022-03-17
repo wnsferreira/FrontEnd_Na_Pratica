@@ -9,9 +9,10 @@
     <div class="row">
       <div class="col">
         <h2>Filmes encontrados</h2>
-        <button type="button" 
-        class="btn btn-primary btn-lg"
-        @click="mostrarCarrinho">
+        <button 
+          type="button" 
+          class="btn btn-primary btn-lg"
+          @click="mostrarCarrinho">
           Carrinho: {{ quantidadeNoCarrinho }} filmes
         </button>
       </div>
@@ -74,10 +75,7 @@
             <a href="#" v-else class="btn btn-primary disable">ALUGAR</a>
         </div>
       </div>
-      <!-- <div v-if="!mostrarFilmes">
-        <h2>Carrinho</h2>
-      </div> -->
-
+      <div v-if="mostrarFilmes"></div>
       <div class="row" v-else>
         <h2>Carrinho</h2>
 
@@ -219,7 +217,7 @@
         mostrarFilmes: true,
         title: "Locadora de filmes",
         horas: new Date().getHours(),
-        pedido:{
+        pedido: {
           primeiroNome: "",
           ultimoNome: "",
           endereco: "",
@@ -276,7 +274,7 @@
             imagem:
               "https://ondebaixa.com/imagens/cinderela-e-o-pri%cc%81ncipe-secreto-download-torrent-2020-dublado-dual-audio-bluray-1080p-720p-4k-hd.jpg",
             estoqueDisponivel: 3,
-            avaliacao: 5
+            avaliacao: 1
           },
           {
             id: 5,
@@ -294,6 +292,12 @@
     },
 
     methods: {
+      checarAvaliacao(n,filme){
+        return filme.avaliacao - n >= 0;
+      },
+      submitFormulario(){
+        alert('Pedido finalizado')
+      },
       mostrarCarrinho() {
         this.mostrarFilmes = this.mostrarFilmes ? false : true;
       },
@@ -315,6 +319,15 @@
     },
 
     computed: {
+      filmesOrdenados(){
+        const filmes = [ ...this.filmes];
+        if(filmes.length > 0) {
+          return filmes.sort((a,b) => {
+            if(a.titulo.toLowerCase() < b.titulo.toLowerCase()) return -1;
+            if(a.titulo.toLowerCase() > b.titulo.toLowerCase()) return 1;
+        });
+        } else return []
+      },
       quantidadeNoCarrinho: function () {
         return this.carrinho.length;
       },

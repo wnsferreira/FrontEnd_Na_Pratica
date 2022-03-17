@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Temos abaixo dois componentes: custom-input e blog-post -->
+
+    <div id="app">
+        <custom-input
+            v-model="searchText">
+        </custom-input>
+        {{ searchText }}
+
+        <div :style="{ fontSize: postFontSize + 'em' }">
+            <blog-post
+                @enlarge-text="onEnlargeText"
+                v-for="post in posts"
+                :key="post.id"
+                :title="post.title"
+                :text="post.text">
+            </blog-post>
+        </div>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    searchText:'',
+                    posts: [
+                        {
+                          id:1,
+                          title:"Aprendendo Vue",
+                          text:"como estou indo?",
+                        },
+                        {
+                          id:2,
+                          title:"Escrevendo com Vue",
+                          text:"Escrevi bastante",
+                        },
+                        {
+                          id:3,
+                          title:"Vue",
+                          text:"Estou gostando!",
+                        }
+                    ],
+                    postFontSize: 1
+                }
+            },
+            methods: {
+                onEnlargeText(enlargeAmount){
+                    this.postFontSize += enlargeAmount
+                }
+            }
+        }
+        const app = Vue.createApp(App)
+        app.component('blog-post', {
+            props: ['title', 'text'],
+            template: `<div>
+                            <h4>{{ title }}</h4>
+                            <p> {{ text }}</p>
+                            <button @click="$emit('EnlargeText', 2)">
+                                Aumentar texto
+                            </button>
+                       </div>`
+        })
+
+        app.component('custom-input', {
+            props: ['modelValue'],
+            emits: ['update:modelValue'],
+            template: `<input v-model= "value">`,
+            computed:{
+                value:{
+                    get() {
+                        return this.modelValue
+                    },
+                    set(value) {
+                        this.$emit('update:modelValue', value)
+                    }
+                }
+            }
+        })
+
+    app.mount('#app')
+    </script>
+</body>
+</html>
