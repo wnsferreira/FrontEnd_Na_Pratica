@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <todo-list>
+            <todo-list-user></todo-list-user>
+        </todo-list>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    user: { name: 'Luiz'}
+                }
+            },
+            provide() {
+                return {
+                    user: this.user
+                }
+            },
+        })
+        app.component('todo-list', {
+            data() {
+                return {
+                    todos: ['Correr', 'Caminhar']
+                }
+            },
+            provide() {
+                return {
+                    todoLength: Vue.computed(() => this.todos.length)
+                }
+            },
+            template:
+                `<div>
+                    <h1>Tarefas:</h1>
+                    <slot></slot>
+                </div>`
+        })
+
+        app.component('todo-list-user', {
+            inject: ['user', 'todoLength'],
+            template: `<p>User: {{ user }}</p>
+                        <p> Tarefas: {{ todoLength }}</p>`
+        })
+
+        app.mount('#app')
+    </script>
+</body>

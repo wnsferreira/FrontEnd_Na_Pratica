@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <date-picker @change="showChange"></date-picker>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            methods: {
+                showChange: (event) =>
+                console.log(event.target.value)
+            }
+        })
+        app.component('date-picker', {
+            template:
+            `<select>
+                <option value="1">Ontem</option>
+                <option value="2">Hoje</option>
+                <option value="3">Amanhã</option>
+             </select>`
+        })
+
+        app.mount('#app')
+    </script>
+</body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>Pai: {{ user }}</p>
+        <p>Filho:
+            <user-profile :user="user"></user-profile>
+        </p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    user: { name: 'Bella'}
+                }
+            },
+        })
+        app.component('user-profile', {
+            props: { 
+                user: Object
+            },
+            template: `<input v-model="user.name">`
+        })
+
+        app.mount('#app')
+    </script>
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 6px 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #f0f0f0;
+            margin-bottom: -1px;
+            margin-right: -1px;
+        }
+
+        .tab-button:hover {
+            background: #e0e0e0;
+        }
+
+        .tab-button.active {
+            background: #e0e0e0;
+        }
+
+        .demo-tab {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</body>
